@@ -70,6 +70,7 @@
         linear-gradient(210deg, rgba(164, 94, 77, 0.18), rgba(0, 0, 0, 0) 46%),
         linear-gradient(180deg, #000000 0%, #15100d 45%, #000000 100%);
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     body::selection {
@@ -103,7 +104,8 @@
     }
 
     .wrap {
-      width: min(100% - 32px, var(--max));
+      width: calc(100% - 32px);
+      max-width: var(--max);
       margin: 0 auto;
     }
 
@@ -138,6 +140,13 @@
       display: grid;
       gap: 28px;
       align-items: end;
+    }
+
+    .hero-grid > *,
+    .grid > *,
+    .applications > *,
+    .logo-compare > * {
+      min-width: 0;
     }
 
     .eyebrow {
@@ -182,6 +191,10 @@
       font-weight: 400;
     }
 
+    .hero-break {
+      display: inline;
+    }
+
     .hero-copy {
       max-width: 760px;
       margin-bottom: 24px;
@@ -212,6 +225,7 @@
     .hero-preview {
       position: relative;
       overflow: hidden;
+      margin: 0;
       min-height: 360px;
       border: 1px solid rgba(255, 246, 237, 0.18);
       border-radius: var(--radius);
@@ -293,6 +307,7 @@
       border-radius: var(--radius);
       background: var(--paper);
       box-shadow: var(--shadow-soft);
+      overflow-wrap: break-word;
     }
 
     .section-shell.dark {
@@ -368,6 +383,8 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: #fffdfa;
+      overflow-x: auto;
+      overflow-wrap: break-word;
     }
 
     .info-box h3 {
@@ -818,7 +835,7 @@
       display: grid;
       align-content: end;
       min-height: 420px;
-      padding: 28px;
+      padding: clamp(20px, 5vw, 28px);
       border: 1px solid rgba(255, 246, 237, 0.16);
       border-radius: var(--radius);
       background: var(--mock-bg, #111);
@@ -875,7 +892,7 @@
       margin: 0;
       line-height: 0.95;
       font-family: var(--font-display);
-      font-size: 2.2rem;
+      font-size: clamp(1.85rem, 8vw, 2.2rem);
       font-weight: 900;
     }
 
@@ -924,7 +941,7 @@
     }
 
     .mockup.invite h3 {
-      font-size: 2.4rem;
+      font-size: clamp(2rem, 10vw, 2.4rem);
     }
 
     .mockup.verse {
@@ -937,7 +954,7 @@
 
     .mockup.verse h3 {
       font-style: italic;
-      font-size: 2rem;
+      font-size: clamp(1.45rem, 7vw, 2rem);
       line-height: 1.1;
     }
 
@@ -970,7 +987,7 @@
 
     .mockup.countdown h3 {
       font-family: var(--font-sans);
-      font-size: 4rem;
+      font-size: clamp(3rem, 17vw, 4rem);
       font-weight: 900;
       line-height: 0.8;
       text-transform: uppercase;
@@ -978,7 +995,7 @@
 
     .mockup.countdown .script-word {
       color: var(--v3-pessego-luz);
-      font-size: 3.3rem;
+      font-size: clamp(2.35rem, 13vw, 3.3rem);
     }
 
     .mockup.countdown .motion-accent {
@@ -1003,7 +1020,7 @@
     .mockup.teaching h3 {
       margin-bottom: 14px;
       color: var(--v1-terracota-vinho);
-      font-size: 2rem;
+      font-size: clamp(1.6rem, 7vw, 2rem);
     }
 
     .mockup.teaching p {
@@ -1021,7 +1038,7 @@
     }
 
     .mockup.minimal h3 {
-      font-size: 2.3rem;
+      font-size: clamp(1.9rem, 8vw, 2.3rem);
     }
 
     .mockup.minimal .over-dove {
@@ -1043,7 +1060,7 @@
 
     .mockup.testimony h3 {
       font-family: var(--font-sans);
-      font-size: 1.8rem;
+      font-size: clamp(1.35rem, 6.5vw, 1.8rem);
       font-weight: 900;
       line-height: 1.08;
     }
@@ -1068,7 +1085,10 @@
 
     .identity-lockup {
       position: relative;
+      width: 100%;
+      max-width: 430px;
       min-height: 270px;
+      margin: 0 auto;
       font-family: var(--font-display);
       font-weight: 900;
       line-height: 0.86;
@@ -1083,14 +1103,14 @@
     .identity-lockup .l1 {
       left: 2%;
       top: 0;
-      font-size: 5.5rem;
+      font-size: clamp(3.9rem, 17vw, 5.5rem);
       color: var(--v1-terracota-vinho);
     }
 
     .identity-lockup .l2 {
       left: 18%;
       top: 34%;
-      font-size: 5rem;
+      font-size: clamp(3.5rem, 16vw, 5rem);
       color: var(--v1-caramelo-queimado);
       transform: rotate(-8deg);
     }
@@ -1098,7 +1118,7 @@
     .identity-lockup .l3 {
       right: 5%;
       top: 36%;
-      font-size: 4.8rem;
+      font-size: clamp(3.3rem, 15vw, 4.8rem);
       color: var(--v1-cobre-claro);
     }
 
@@ -1115,7 +1135,7 @@
       right: 5%;
       bottom: 0;
       font-family: var(--font-script);
-      font-size: 5.8rem;
+      font-size: clamp(4rem, 19vw, 5.8rem);
       font-weight: 400;
       text-transform: none;
       color: var(--v1-cobre-claro);
@@ -1140,7 +1160,7 @@
 
     .mockup.quick h3 {
       font-family: var(--font-sans);
-      font-size: 2.5rem;
+      font-size: clamp(2rem, 10vw, 2.5rem);
       font-weight: 900;
       line-height: 0.96;
       text-transform: uppercase;
@@ -1335,6 +1355,303 @@
       transform: translate(-50%, 0);
     }
 
+    @media (max-width: 520px) {
+      .wrap {
+        width: calc(100% - 40px);
+        max-width: var(--max);
+      }
+
+      .hero {
+        padding: 34px 0 22px;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+        font-size: clamp(2.05rem, 10.2vw, 2.45rem);
+        line-height: 1;
+      }
+
+      .hero-break {
+        display: block;
+      }
+
+      .hero-copy {
+        max-width: 350px;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .hero-meta {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 350px;
+      }
+
+      .meta-chip {
+        width: 100%;
+        min-height: 36px;
+      }
+
+      .hero-preview {
+        width: 100%;
+        max-width: 350px;
+        min-height: min(78vw, 320px);
+      }
+
+      .hero-preview img {
+        min-height: 0;
+        max-height: min(72vw, 300px);
+        padding: 12px;
+      }
+
+      .hero-preview-note {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        font-size: 0.7rem;
+      }
+
+      .nav {
+        gap: 6px;
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .nav a {
+        padding: 8px 10px;
+        font-size: 0.74rem;
+      }
+
+      main {
+        padding-top: 18px;
+      }
+
+      .section-shell {
+        margin-bottom: 18px;
+        padding: 16px;
+      }
+
+      .section-head {
+        margin-bottom: 16px;
+        padding-bottom: 13px;
+      }
+
+      .section-title {
+        font-size: clamp(1.75rem, 9vw, 2.1rem);
+      }
+
+      .section-lead,
+      .mini-note {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .swatch-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .swatch {
+        min-height: 108px;
+      }
+
+      .color-table {
+        display: block;
+        border: 0;
+        font-size: 0.86rem;
+      }
+
+      .color-table thead {
+        display: none;
+      }
+
+      .color-table tbody,
+      .color-table tr,
+      .color-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .color-table tr {
+        overflow: hidden;
+        margin-bottom: 10px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fffdfa;
+      }
+
+      .color-table td {
+        position: relative;
+        min-height: 44px;
+        padding: 12px 12px 12px 114px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .color-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        top: 13px;
+        width: 82px;
+        color: var(--v1-marrom-cafe);
+        font-size: 0.68rem;
+        font-weight: 900;
+        line-height: 1.25;
+        text-transform: uppercase;
+      }
+
+      .color-table tr:last-child td,
+      .color-table td:last-child {
+        border-bottom: 0;
+      }
+
+      .type-card,
+      .rule-panel,
+      .export-card,
+      .element-card,
+      .info-box {
+        padding: 14px;
+      }
+
+      .sample.playfair {
+        font-size: 1.85rem;
+      }
+
+      .sample.montserrat {
+        font-size: 1.45rem;
+      }
+
+      .sample.parisienne {
+        font-size: 2.35rem;
+      }
+
+      .logo-stage {
+        min-height: 250px;
+        padding: 12px;
+      }
+
+      .logo-stage img {
+        max-height: 230px;
+      }
+
+      .element-visual {
+        min-height: 155px;
+      }
+
+      .graphic-img {
+        max-height: 145px;
+      }
+
+      .graphic-img.dove-mark,
+      .graphic-img.floral-mark {
+        max-height: 155px;
+      }
+
+      .applications {
+        gap: 22px;
+      }
+
+      .application-item {
+        width: 100%;
+      }
+
+      .mockup {
+        width: 100%;
+        margin-inline: auto;
+      }
+
+      .mockup.story {
+        max-width: 360px;
+      }
+
+      .mockup.feed,
+      .mockup.square {
+        max-width: 420px;
+      }
+
+      .mockup .small {
+        font-size: 0.72rem;
+      }
+
+      .mockup.verse .corner-ornament {
+        width: 118px;
+      }
+
+      .mockup.countdown .motion-accent {
+        left: -30%;
+        top: 15%;
+        width: 150%;
+      }
+
+      .mockup.testimony .floral-bg {
+        width: 145px;
+      }
+
+      .identity-lockup {
+        min-height: clamp(210px, 72vw, 270px);
+      }
+
+      .identity-lockup .l1 {
+        left: 3%;
+        top: 2%;
+        font-size: clamp(3.4rem, 14vw, 4.1rem);
+      }
+
+      .identity-lockup .l2 {
+        left: 18%;
+        top: 31%;
+        font-size: clamp(3rem, 13vw, 3.8rem);
+      }
+
+      .identity-lockup .l3 {
+        left: 50%;
+        right: auto;
+        top: 43%;
+        font-size: clamp(2.3rem, 10vw, 3rem);
+      }
+
+      .identity-lockup .l4 {
+        left: 10%;
+        bottom: 16%;
+        font-size: clamp(1rem, 5vw, 1.4rem);
+      }
+
+      .identity-lockup .l5 {
+        right: 8%;
+        bottom: 0;
+        font-size: clamp(3rem, 14vw, 4rem);
+      }
+
+      .identity-lockup .identity-dove {
+        width: 38%;
+      }
+
+      .quick-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      details.source summary {
+        font-size: 0.74rem;
+      }
+
+      pre {
+        font-size: 0.72rem;
+      }
+
+      .back-top {
+        right: 12px;
+        bottom: 12px;
+        min-height: 38px;
+        padding: 8px 10px;
+      }
+
+      .toast {
+        width: calc(100% - 32px);
+        text-align: center;
+      }
+    }
+
     @media (min-width: 680px) {
       .hero {
         padding-top: 64px;
@@ -1417,7 +1734,7 @@
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Guia completo de identidade visual</p>
-          <h1>Até que <span class="script">Ele</span> seja tudo em nós</h1>
+          <h1>Até que <span class="script">Ele</span> <span class="hero-break">seja tudo</span> <span class="hero-break">em nós</span></h1>
           <p class="hero-copy">
             Documento de uso para o congresso de jovens Vocal Renascer, da Assembleia de Deus - Subsede São Luiz. A identidade combina uma base moderna e vibrante com linguagem espiritual, orgânica e autêntica, orientada por Colossenses 3:15-17.
           </p>
@@ -1563,35 +1880,35 @@
             </thead>
             <tbody>
               <tr>
-                <td>Versão 1 / ESTAMPA 02.png</td>
-                <td>
+                <td data-label="Arquivo">Versão 1 / ESTAMPA 02.png</td>
+                <td data-label="Cores">
                   <span class="dot" style="--dot:#CE8F64;"></span>#CE8F64 35,93%<br>
                   <span class="dot" style="--dot:#A45E4D;"></span>#A45E4D 35,14%<br>
                   <span class="dot" style="--dot:#895023;"></span>#895023 18,62%<br>
                   <span class="dot" style="--dot:#DA926C;"></span>#DA926C 9,66%<br>
                   <span class="dot" style="--dot:#FFF6ED;"></span>#FFF6ED 0,56%
                 </td>
-                <td>Mais contrastada, com vinho queimado, café e caramelo. É a versão mais institucional.</td>
+                <td data-label="Leitura">Mais contrastada, com vinho queimado, café e caramelo. É a versão mais institucional.</td>
               </tr>
               <tr>
-                <td>Versão 2 / ESTAMPA 03.png</td>
-                <td>
+                <td data-label="Arquivo">Versão 2 / ESTAMPA 03.png</td>
+                <td data-label="Cores">
                   <span class="dot" style="--dot:#EDD1BB;"></span>#EDD1BB 43,70%<br>
                   <span class="dot" style="--dot:#CE8F64;"></span>#CE8F64 35,91%<br>
                   <span class="dot" style="--dot:#FEFEFE;"></span>#FEFEFE 10,08%<br>
                   <span class="dot" style="--dot:#DA926C;"></span>#DA926C 9,66%<br>
                   <span class="dot" style="--dot:#FFF6ED;"></span>#FFF6ED 0,56%
                 </td>
-                <td>Suave, clara e editorial. Funciona bem sobre fundo branco, marfim ou fotos com overlay.</td>
+                <td data-label="Leitura">Suave, clara e editorial. Funciona bem sobre fundo branco, marfim ou fotos com overlay.</td>
               </tr>
               <tr>
-                <td>Versão 3 / ESTAMPA 01.png</td>
-                <td>
+                <td data-label="Arquivo">Versão 3 / ESTAMPA 01.png</td>
+                <td data-label="Cores">
                   <span class="dot" style="--dot:#DA926C;"></span>#DA926C 45,59%<br>
                   <span class="dot" style="--dot:#FDD1A1;"></span>#FDD1A1 35,16%<br>
                   <span class="dot" style="--dot:#FFF6ED;"></span>#FFF6ED 19,14%
                 </td>
-                <td>Mais quente, luminosa e celebrativa. Ideal para adoração, convites e peças de expectativa.</td>
+                <td data-label="Leitura">Mais quente, luminosa e celebrativa. Ideal para adoração, convites e peças de expectativa.</td>
               </tr>
             </tbody>
           </table>
@@ -2017,24 +2334,24 @@ font-family: Montserrat;</code></pre>
             </thead>
             <tbody>
               <tr>
-                <td>Cartaz principal, capa de evento, abertura de reel</td>
-                <td>Versão 1</td>
-                <td>Tem maior presença visual e mais contraste entre tipografia e ornamentos.</td>
+                <td data-label="Contexto">Cartaz principal, capa de evento, abertura de reel</td>
+                <td data-label="Versão">Versão 1</td>
+                <td data-label="Motivo">Tem maior presença visual e mais contraste entre tipografia e ornamentos.</td>
               </tr>
               <tr>
-                <td>Carrossel com ensino, post devocional, fundo claro</td>
-                <td>Versão 2</td>
-                <td>O tom suave permite mais texto sem disputar atenção.</td>
+                <td data-label="Contexto">Carrossel com ensino, post devocional, fundo claro</td>
+                <td data-label="Versão">Versão 2</td>
+                <td data-label="Motivo">O tom suave permite mais texto sem disputar atenção.</td>
               </tr>
               <tr>
-                <td>Stories de adoração, contagem regressiva leve, celebração</td>
-                <td>Versão 3</td>
-                <td>A paleta quente cria sensação de luz, acolhimento e expectativa.</td>
+                <td data-label="Contexto">Stories de adoração, contagem regressiva leve, celebração</td>
+                <td data-label="Versão">Versão 3</td>
+                <td data-label="Motivo">A paleta quente cria sensação de luz, acolhimento e expectativa.</td>
               </tr>
               <tr>
-                <td>Peças com foto de fundo escura</td>
-                <td>Versão 1 ou marca monocromática clara</td>
-                <td>Preserva leitura. Use overlay se a foto tiver muita informação.</td>
+                <td data-label="Contexto">Peças com foto de fundo escura</td>
+                <td data-label="Versão">Versão 1 ou marca monocromática clara</td>
+                <td data-label="Motivo">Preserva leitura. Use overlay se a foto tiver muita informação.</td>
               </tr>
             </tbody>
           </table>
